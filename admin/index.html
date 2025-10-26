@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Panel - Accessible Content Platform</title>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="login-section" class="section">
+        <div class="login-container">
+            <h1>Admin Login</h1>
+            <form id="login-form" aria-label="Admin login form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+                <div id="login-error" class="error-message" role="alert" aria-live="polite"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="dashboard-section" class="section hidden">
+        <header class="admin-header">
+            <h1>Content Management Dashboard</h1>
+            <div class="admin-nav">
+                <span id="admin-username"></span>
+                <button id="logout-btn" class="btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <main class="admin-main">
+            <!-- Content Management -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>Manage Content</h2>
+                    <button id="new-content-btn" class="btn-primary">+ New Content</button>
+                </div>
+
+                <!-- Content Form -->
+                <div id="content-form-container" class="form-container hidden">
+                    <h3 id="form-title">Add New Content</h3>
+                    <form id="content-form" aria-label="Content management form">
+                        <input type="hidden" id="content-id">
+                        
+                        <div class="form-group">
+                            <label for="content-title">Title *</label>
+                            <input type="text" id="content-title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content-category">Category</label>
+                            <select id="content-category">
+                                <option value="general">General</option>
+                                <option value="features">Features</option>
+                                <option value="news">News</option>
+                                <option value="help">Help</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content-alt-text">Alt Text (for images)</label>
+                            <input type="text" id="content-alt-text" placeholder="Descriptive text for accessibility">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content-body">Content *</label>
+                            <textarea id="content-body" rows="10" required></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Content</button>
+                            <button type="button" id="cancel-btn" class="btn-secondary">Cancel</button>
+                        </div>
+                        
+                        <div id="form-message" class="message" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+
+                <!-- Content List -->
+                <div id="content-list" class="content-list">
+                    <p>Loading content...</p>
+                </div>
+            </section>
+
+            <!-- Contact Messages -->
+            <section class="messages-section">
+                <h2>Contact Messages</h2>
+                <div id="messages-list" class="messages-list">
+                    <p>Loading messages...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin-app.js"></script>
+</body>
+</html>

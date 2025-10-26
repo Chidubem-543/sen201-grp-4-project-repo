@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessible content platform with text-to-speech, screen reader support, and full WCAG compliance">
+    <title>Accessible Content Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Accessibility Controls Bar -->
+    <div class="accessibility-controls" role="region" aria-label="Accessibility controls">
+        <button id="tts-toggle" aria-pressed="false" aria-label="Toggle text-to-speech">
+            <span aria-hidden="true">🔊</span> Text-to-Speech
+        </button>
+        <button id="font-size-increase" aria-label="Increase font size">
+            <span aria-hidden="true">A+</span> Increase Text
+        </button>
+        <button id="font-size-decrease" aria-label="Decrease font size">
+            <span aria-hidden="true">A-</span> Decrease Text
+        </button>
+        <button id="high-contrast-toggle" aria-pressed="false" aria-label="Toggle high contrast mode">
+            <span aria-hidden="true">◐</span> High Contrast
+        </button>
+    </div>
+
+    <!-- Header with navigation -->
+    <header role="banner">
+        <nav role="navigation" aria-label="Main navigation">
+            <h1>Accessible Content Platform</h1>
+            <ul>
+                <li><a href="#main-content" aria-current="page">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main id="main-content" role="main" tabindex="-1">
+        <!-- Welcome Section -->
+        <section aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading">Welcome to Our Accessible Platform</h2>
+            <p class="tts-content">
+                We are committed to providing an inclusive digital experience for all users, 
+                regardless of ability. Our platform features comprehensive accessibility support 
+                including text-to-speech, screen reader compatibility, and keyboard navigation.
+            </p>
+            <img src="images/welcome.jpg" 
+                 alt="Diverse group of people using various assistive technologies to access digital content" 
+                 loading="lazy">
+        </section>
+
+        <!-- About Section -->
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Our Mission</h2>
+            <p class="tts-content">
+                Our mission is to break down digital barriers and ensure that everyone can access, 
+                understand, and interact with online content. We comply with WCAG 2.1 AA standards 
+                and continuously work to improve accessibility features.
+            </p>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" aria-labelledby="features-heading">
+            <h2 id="features-heading">Accessibility Features</h2>
+            <ul class="features-list">
+                <li>
+                    <h3>Screen Reader Support</h3>
+                    <p class="tts-content">Full compatibility with JAWS, NVDA, VoiceOver, and other screen readers</p>
+                </li>
+                <li>
+                    <h3>Text-to-Speech</h3>
+                    <p class="tts-content">Built-in text-to-speech functionality for all written content</p>
+                </li>
+                <li>
+                    <h3>Keyboard Navigation</h3>
+                    <p class="tts-content">Complete keyboard-only navigation without requiring a mouse</p>
+                </li>
+                <li>
+                    <h3>Alternative Text</h3>
+                    <p class="tts-content">Descriptive alt text for all images and visual content</p>
+                </li>
+                <li>
+                    <h3>Captions & Transcripts</h3>
+                    <p class="tts-content">Video captions and transcripts for hearing-impaired users</p>
+                </li>
+                <li>
+                    <h3>Responsive Design</h3>
+                    <p class="tts-content">Mobile-friendly and accessible across all devices and browsers</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact & Support</h2>
+            <p class="tts-content">
+                If you need assistance or have accessibility concerns, please reach out to our support team.
+            </p>
+            <form action="/api/contact" method="POST" aria-label="Contact form">
+                <div class="form-group">
+                    <label for="name">Name <span aria-label="required">*</span></label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email <span aria-label="required">*</span></label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message <span aria-label="required">*</span></label>
+                    <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+            <div role="status" aria-live="polite" id="form-status" class="visually-hidden"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <p class="tts-content">
+            © 2025 Accessible Content Platform. Compliant with WCAG 2.1 AA standards.
+        </p>
+        <p>
+            <a href="/admin">Admin Login</a>
+        </p>
+    </footer>
+
+    <script src="accessibility.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
